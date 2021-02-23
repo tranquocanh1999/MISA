@@ -132,7 +132,12 @@ namespace MISA.CukCuk.Api.Controllers
             {
 
                 var res = _baseService.Update(id, entity);
-                return StatusCode(200, res.Data);
+                if (res.Success == false)
+                    return StatusCode(400, res.Data);
+                
+                else return StatusCode(200, res.Data);
+
+               
             }
             catch (Exception ex)
             {
@@ -157,7 +162,12 @@ namespace MISA.CukCuk.Api.Controllers
             {
 
                 var res = _baseService.Delete(id);
-                return StatusCode(200, res.Data);
+
+              
+                if (res.Success == false)
+                    return StatusCode(400, res.Data);
+
+                else return StatusCode(200, res.Data);
             }
             catch (Exception ex)
             {

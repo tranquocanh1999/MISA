@@ -62,7 +62,7 @@ namespace MISA.Service
             }
 
 
-            // check kì thu thoại có trống hay không 
+            // check kì thu  có trống hay không 
             if (fee.Period <= 0)
             {
                 if (erroMsg != null)

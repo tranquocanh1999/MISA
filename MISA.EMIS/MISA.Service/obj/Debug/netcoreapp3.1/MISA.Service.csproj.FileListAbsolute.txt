@@ -12,3 +12,17 @@ C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Servi
 C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.csproj.CopyComplete
 C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.dll
 C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.Service.deps.json
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.Service.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.Service.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.Common.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.DataLayer.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.Common.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\bin\Debug\netcoreapp3.1\MISA.DataLayer.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.csprojAssemblyReference.cache
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.AssemblyInfoInputs.cache
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.AssemblyInfo.cs
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.csproj.CoreCompileInputs.cache
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.csproj.CopyComplete
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.Service\obj\Debug\netcoreapp3.1\MISA.Service.pdb

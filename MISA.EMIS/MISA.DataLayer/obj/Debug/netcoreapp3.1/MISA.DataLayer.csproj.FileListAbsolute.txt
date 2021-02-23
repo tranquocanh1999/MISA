@@ -10,3 +10,15 @@ C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.Dat
 C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.csproj.CopyComplete
 C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.dll
 C:\Users\Q.Anh\Desktop\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\bin\Debug\netcoreapp3.1\MISA.DataLayer.deps.json
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\bin\Debug\netcoreapp3.1\MISA.DataLayer.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\bin\Debug\netcoreapp3.1\MISA.DataLayer.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\bin\Debug\netcoreapp3.1\MISA.Common.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\bin\Debug\netcoreapp3.1\MISA.Common.pdb
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.csprojAssemblyReference.cache
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.AssemblyInfoInputs.cache
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.AssemblyInfo.cs
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.csproj.CopyComplete
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.dll
+C:\Users\Q.Anh\Desktop\EMIS\MISA\MISA.EMIS\MISA.DataLayer\obj\Debug\netcoreapp3.1\MISA.DataLayer.pdb
