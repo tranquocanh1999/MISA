@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MISA.CukCuk.Api
+namespace MISA.EMIS.Api
 {
     public class Startup
     {
@@ -43,16 +43,15 @@ namespace MISA.CukCuk.Api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.CukCuk.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.EMIS.Api", Version = "v1" });
             });
-
             // cấu hình DI
 
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IFeeService, FeeService>();
             services.AddScoped<ICustomerGroupService, FeeGroupService>();
 
-            services.AddScoped(typeof(IDbContext<>), typeof(MariaDbContext <>));
+            services.AddScoped(typeof(IDbContext<>), typeof(MariaDbContext<>));
             services.AddScoped<IFeeRepository, FeeRepository>();
             services.AddScoped<IFeeGroupRepository, FeeGroupRepository>();
         }
@@ -64,7 +63,7 @@ namespace MISA.CukCuk.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.CukCuk.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.EMIS.Api v1"));
             }
 
             app.UseRouting();

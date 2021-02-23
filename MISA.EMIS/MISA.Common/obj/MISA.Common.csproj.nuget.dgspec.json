@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\MISA.Common.csproj": {}
+    "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\MISA.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\MISA.Common.csproj": {
+    "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\MISA.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\MISA.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\MISA.Common.csproj",
         "projectName": "MISA.Common",
-        "projectPath": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\MISA.Common.csproj",
+        "projectPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\MISA.Common.csproj",
         "packagesPath": "C:\\Users\\Q.Anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\obj\\",
+        "outputPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -47,6 +47,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.78, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.23, )"
             },
             "MySqlConnector": {
               "target": "Package",

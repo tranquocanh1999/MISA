@@ -23,10 +23,11 @@
   },
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "MISA.CukCuk.Api/1.0.0": {
+      "MISA.EMIS.Api/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.78",
           "MISA.Common": "1.0.0",
+          "MISA.DataLayer": "1.0.0",
           "MISA.Service": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.1",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "5.0.1",
@@ -319,10 +320,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "MISA.CukCuk.Api.dll": {}
+          "MISA.EMIS.Api.dll": {}
         },
         "compile": {
-          "MISA.CukCuk.Api.dll": {}
+          "MISA.EMIS.Api.dll": {}
         }
       },
       "BouncyCastle.NetCore/1.8.5": {
@@ -719,6 +720,7 @@
       "MISA.Common/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.78",
+          "MySql.Data": "8.0.23",
           "MySqlConnector": "1.2.1"
         },
         "runtime": {
@@ -732,6 +734,7 @@
         "dependencies": {
           "Dapper": "2.0.78",
           "MISA.Common": "1.0.0",
+          "MySql.Data": "8.0.23",
           "MySqlConnector": "1.2.1"
         },
         "runtime": {
@@ -746,6 +749,7 @@
           "Dapper": "2.0.78",
           "MISA.Common": "1.0.0",
           "MISA.DataLayer": "1.0.0",
+          "MySql.Data": "8.0.23",
           "MySqlConnector": "1.2.1"
         },
         "runtime": {
@@ -2456,7 +2460,7 @@
     }
   },
   "libraries": {
-    "MISA.CukCuk.Api/1.0.0": {
+    "MISA.EMIS.Api/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

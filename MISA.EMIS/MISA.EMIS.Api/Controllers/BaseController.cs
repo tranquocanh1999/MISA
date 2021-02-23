@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MISA.Common.Model;
 using MISA.Service;
 using MISA.Service.Interfaces;
 using System;
@@ -43,12 +44,22 @@ namespace MISA.CukCuk.Api.Controllers
         public IActionResult Get()
         {
 
-
-            var serviceResult = _baseService.GetData();
-            var entity = serviceResult.Data as List<Entity>;
-            if (entity.Count == 0)
-                return StatusCode(204, serviceResult.Data);
-            else return StatusCode(200, serviceResult.Data);
+            try
+            {
+                var serviceResult = _baseService.GetData();
+                var entity = serviceResult.Data as List<Entity>;
+                if (entity.Count == 0)
+                    return StatusCode(204, serviceResult.Data);
+                else return StatusCode(200, serviceResult.Data);
+            }
+            catch (Exception ex)
+            {
+                var serviceResult = new ServiceResult();
+                var erroMsg = new ErroMsg();
+                erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                serviceResult.Data = erroMsg;
+                return StatusCode(500, serviceResult.Data);
+            }
         }
 
         /// <summary>
@@ -60,10 +71,20 @@ namespace MISA.CukCuk.Api.Controllers
         public IActionResult GetbyID(int id)
         {
 
+            try
+            {
+                var serviceResult = _baseService.GetByID(id);
 
-            var serviceResult = _baseService.GetByID(id);
-           
-            return StatusCode(200, serviceResult.Data);
+                return StatusCode(200, serviceResult.Data);
+            }
+            catch (Exception ex)
+            {
+                var serviceResult = new ServiceResult();
+                var erroMsg = new ErroMsg();
+                erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                serviceResult.Data = erroMsg;
+                return StatusCode(500, serviceResult.Data);
+            }
         }
 
 
@@ -77,13 +98,23 @@ namespace MISA.CukCuk.Api.Controllers
         public IActionResult Post(Entity entity)
         {
 
-          
-            var res = _baseService.Insert(entity);
-            if (res.Success == false)
-                return StatusCode(400, res.Data);
-            else if (res.Success == true && (int)res.Data > 0)
-                return StatusCode(201, res.Data);
-            else return StatusCode(200, res.Data);
+            try
+            {
+                var res = _baseService.Insert(entity);
+                if (res.Success == false)
+                    return StatusCode(400, res.Data);
+                else if (res.Success == true && (int)res.Data > 0)
+                    return StatusCode(201, res.Data);
+                else return StatusCode(200, res.Data);
+            }
+            catch (Exception ex)
+            {
+                var serviceResult = new ServiceResult();
+                var erroMsg = new ErroMsg();
+                erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                serviceResult.Data = erroMsg;
+                return StatusCode(500, serviceResult.Data);
+            }
         }
 
         /// <summary>
@@ -97,9 +128,20 @@ namespace MISA.CukCuk.Api.Controllers
         public IActionResult Put(int id, [FromBody] Entity entity)
         {
 
+            try
+            {
 
-            var res = _baseService.Update(id,entity);
-            return StatusCode(200, res.Data);
+                var res = _baseService.Update(id, entity);
+                return StatusCode(200, res.Data);
+            }
+            catch (Exception ex)
+            {
+                var serviceResult = new ServiceResult();
+                var erroMsg = new ErroMsg();
+                erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                serviceResult.Data = erroMsg;
+                return StatusCode(500, serviceResult.Data);
+            }
         }
 
         /// <summary>
@@ -111,9 +153,20 @@ namespace MISA.CukCuk.Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            try
+            {
 
-            var res = _baseService.Delete(id);
-            return StatusCode(200, res.Data);
+                var res = _baseService.Delete(id);
+                return StatusCode(200, res.Data);
+            }
+            catch (Exception ex)
+            {
+                var serviceResult = new ServiceResult();
+                var erroMsg = new ErroMsg();
+                erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                serviceResult.Data = erroMsg;
+                return StatusCode(500, serviceResult.Data);
+            }
         }
 
         #endregion

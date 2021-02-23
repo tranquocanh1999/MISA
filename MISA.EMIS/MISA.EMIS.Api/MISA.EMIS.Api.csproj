@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MISA.Common\MISA.Common.csproj" />
+    <ProjectReference Include="..\MISA.DataLayer\MISA.DataLayer.csproj" />
     <ProjectReference Include="..\MISA.Service\MISA.Service.csproj" />
   </ItemGroup>
 

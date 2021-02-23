@@ -520,6 +520,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Dapper": "2.0.78",
+          "MySql.Data": "8.0.23",
           "MySqlConnector": "1.2.1"
         },
         "compile": {
@@ -535,6 +536,7 @@
         "dependencies": {
           "Dapper": "2.0.78",
           "MISA.Common": "1.0.0",
+          "MySql.Data": "8.0.23",
           "MySqlConnector": "1.2.1"
         },
         "compile": {
@@ -551,6 +553,7 @@
           "Dapper": "2.0.78",
           "MISA.Common": "1.0.0",
           "MISA.DataLayer": "1.0.0",
+          "MySql.Data": "8.0.23",
           "MySqlConnector": "1.2.1"
         },
         "compile": {
@@ -1656,6 +1659,7 @@
     "net5.0": [
       "Dapper >= 2.0.78",
       "MISA.Common >= 1.0.0",
+      "MISA.DataLayer >= 1.0.0",
       "MISA.Service >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.1",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.1",
@@ -1672,11 +1676,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
-      "projectName": "MISA.CukCuk.Api",
-      "projectPath": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.EMIS.Api\\MISA.EMIS.Api.csproj",
+      "projectName": "MISA.EMIS.Api",
+      "projectPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.EMIS.Api\\MISA.EMIS.Api.csproj",
       "packagesPath": "C:\\Users\\Q.Anh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.CukCuk.Api\\obj\\",
+      "outputPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.EMIS.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -1697,11 +1701,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\MISA.Common.csproj": {
-              "projectPath": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Common\\MISA.Common.csproj"
+            "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\MISA.Common.csproj": {
+              "projectPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Common\\MISA.Common.csproj"
             },
-            "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Service\\MISA.Service.csproj": {
-              "projectPath": "C:\\Users\\Q.Anh\\Desktop\\MISA.CukCuk\\MISA.Service\\MISA.Service.csproj"
+            "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.DataLayer\\MISA.DataLayer.csproj": {
+              "projectPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.DataLayer\\MISA.DataLayer.csproj"
+            },
+            "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Service\\MISA.Service.csproj": {
+              "projectPath": "C:\\Users\\Q.Anh\\Desktop\\EMIS\\MISA\\MISA.EMIS\\MISA.Service\\MISA.Service.csproj"
             }
           }
         }
