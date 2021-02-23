@@ -151,7 +151,7 @@
     <value>Thêm thất bại</value>
   </data>
   <data name="UserMsg_isSystem" xml:space="preserve">
-    <value>Đây là bản thu hệ thống, bạn không được xóa</value>
+    <value>Bạn không thể xóa dữ liệu hệ thống</value>
   </data>
   <data name="UserMsg_NoGroup" xml:space="preserve">
     <value>Mã nhóm khoản thu không có, vui lòng nhập lại</value>

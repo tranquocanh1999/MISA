@@ -1,0 +1,21 @@
+.confirm .dialog-container {
+    max-width: 600px;
+    height: 200px;
+    margin-top: 20vh;
+}
+
+.confirm .dialog-container .icon__cancel {
+    margin-left: 540px;
+}
+
+.confirm .alert__text {
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.confirm .confirm__btn {
+    margin-left: 400px;
+    margin-top: 40px;
+    display: flex;
+}

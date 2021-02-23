@@ -1,57 +1,53 @@
 <template>
-  <v-row justify="center">
-    <v-btn color="primary" dark @click.stop="dialog = true">
-      Open Dialog
-    </v-btn>
-
-    <v-dialog v-model="dialog" width="450">
-      <v-card>
-        <v-card-title class="headline">
-          Thông báo
-        </v-card-title>
-
-        <v-card-text>
-          {{ text }}
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Không
-          </v-btn>
-
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Đồng ý
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>
+  <div name="dialog" class="alert">
+    <div v-if="active" class="dialog-backdrop" @click="handleBackdropClick">
+      <div class="dialog-container" @click.stop>
+        <div
+          class="icon__cancel"
+          tabindex="1"
+          v-on:click="handleBackdropClick"
+          v-on:keyup.13="handleBackdropClick"
+        ></div>
+        <h1 class="dialog__title">Thông báo</h1>
+        <div class="alert__text">{{ text }}</div>
+        <button
+          class="btn alert__btn"
+          v-on:click="handleBackdropClick"
+          v-on:keyup.13="handleBackdropClick"
+          ref="focus"
+        >
+          Đồng ý
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
-    return { dialog: false };
+    return {};
   },
   props: {
     text: {
       type: String,
       default: "",
     },
-    onCancel: {
-      type: Function(),
-      default: () => 1,
+    active: {
+      type: Boolean,
+      default: false,
     },
   },
-  onSubmit: {
-    type: Function(),
-    default: () => 1,
+  methods: {
+    handleBackdropClick() {
+      this.$emit("update:active", false);
+    },
   },
-  dialog: {
-    type: Boolean,
-    default: false,
+
+  created() {
+    setTimeout(() => {
+      this.$refs.focus.focus();
+    }, 0);
   },
 };
 </script>

@@ -9,8 +9,6 @@
 }
 
 .dialog-container {
-    max-width: 1600px;
-    height: 840px;
     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
     margin-top: 30px;
     margin-left: auto;
@@ -48,19 +46,15 @@
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
-    right: 180px;
 }
 
 .dialog-container .dialog__title {
     color: #888888;
     position: absolute;
-    left: 200px;
-    top: 50px;
 }
 
 .dialog-container .input__form {
-    width: 100%;
+    width: 1600px;
     height: 70vh;
     margin-top: 80px;
     font-size: 16px;
@@ -85,7 +79,7 @@
 }
 
 .dialog-container .input__form .left {
-    width: 55%;
+    width: 1000px;
     height: 70vh;
     border-right: 2px solid #d5d5d5;
     padding-left: 12px;
@@ -93,7 +87,7 @@
 }
 
 .dialog-container .input__form .right {
-    width: 40%;
+    width: 500px;
     height: 70vh;
     padding-left: 60px;
     padding-top: 80px;

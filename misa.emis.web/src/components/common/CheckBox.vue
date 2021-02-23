@@ -11,7 +11,7 @@
       />
       <span
         class="checkBox__checkmark"
-        tabindex="0"
+        tabindex="1"
         v-on:keyup.13="onKeyup()"
       ></span>
     </label>

@@ -5,6 +5,8 @@
 @import "./common/Combobox.css";
 @import "./common/Input.css";
 @import "./common/CheckBox.css";
+@import "./common/Alert.css";
+@import "./common/Confirm.css";
 @import "./common/Button.css";
 @import "./common/Dialog.css";
 @import "./page/FeeList.css";

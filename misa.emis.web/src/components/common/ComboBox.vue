@@ -115,6 +115,9 @@ export default {
   components: {
     InputVue,
   },
+  async created(){
+  this.listData.forEach((item)=>{if(item.id===this.value) this.value1=item.text;})
+  }
 };
 </script>
 

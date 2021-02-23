@@ -68,6 +68,10 @@
     border-collapse: collapse;
 }
 
+.feeList__table table tbody .trActive {
+    background-color: #cce8ff !important;
+}
+
 .feeList__table table tr {
     border-bottom: 1px solid #ccc;
     height: 40px;

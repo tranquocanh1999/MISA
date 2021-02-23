@@ -20,11 +20,14 @@
       v-bind:placeholder="placeholder"
       :readonly="readonly"
       :required="required"
+      v-on:focus="autofocus"
+      tabindex="1"
+      ref="autoFocus"
     />
 
     <div
       class=" input_icon "
-      v-on:click="onChange(type==='number'?0:'')"
+      v-on:click="onChange(type === 'number' ? 0 : '')"
       v-if="hasValue"
     ></div>
   </div>
@@ -58,6 +61,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    autofocus: {
+      type: Boolean,
+      default: false,
+    },
     placeholder: {
       type: String,
       default: "",
@@ -77,7 +84,7 @@ export default {
     },
     style: {
       type: Object,
-     
+      default: null,
     },
   },
   data() {
@@ -98,9 +105,12 @@ export default {
     },
   },
   methods: {},
+created(){
+
+  if(this.autofocus===true) setTimeout(()=>{this.$refs.autoFocus.focus()},0);
+}
+
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

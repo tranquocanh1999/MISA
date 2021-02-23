@@ -5,6 +5,7 @@
     v-on:click="onClick"
     v-bind:style="{ width: width, styles }"
     :disabled="disabled"
+    tabindex="1"
   >
     <div
       class="icon"

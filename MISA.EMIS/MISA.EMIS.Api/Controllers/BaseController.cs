@@ -57,6 +57,7 @@ namespace MISA.CukCuk.Api.Controllers
                 var serviceResult = new ServiceResult();
                 var erroMsg = new ErroMsg();
                 erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                erroMsg.DevMsg = ex.ToString();
                 serviceResult.Data = erroMsg;
                 return StatusCode(500, serviceResult.Data);
             }
@@ -82,6 +83,7 @@ namespace MISA.CukCuk.Api.Controllers
                 var serviceResult = new ServiceResult();
                 var erroMsg = new ErroMsg();
                 erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                erroMsg.DevMsg = ex.ToString();
                 serviceResult.Data = erroMsg;
                 return StatusCode(500, serviceResult.Data);
             }
@@ -112,6 +114,7 @@ namespace MISA.CukCuk.Api.Controllers
                 var serviceResult = new ServiceResult();
                 var erroMsg = new ErroMsg();
                 erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                erroMsg.DevMsg = ex.ToString();
                 serviceResult.Data = erroMsg;
                 return StatusCode(500, serviceResult.Data);
             }
@@ -144,6 +147,7 @@ namespace MISA.CukCuk.Api.Controllers
                 var serviceResult = new ServiceResult();
                 var erroMsg = new ErroMsg();
                 erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                erroMsg.DevMsg = ex.ToString();
                 serviceResult.Data = erroMsg;
                 return StatusCode(500, serviceResult.Data);
             }

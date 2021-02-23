@@ -1,3 +1,13 @@
+.fee__detail .dialog-container {
+    max-width: 1600px;
+    height: 840px;
+}
+
+.fee__detail .dialog-container .icon__cancel {
+    position: absolute;
+    right: 180px;
+}
+
 .fee__detail .feeGroup {
     display: flex;
     margin-top: 28px;

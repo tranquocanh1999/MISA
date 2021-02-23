@@ -1,7 +1,7 @@
 <template>
   <div name="dialog" class="fee__detail">
     <div v-if="active" class="dialog-backdrop" @click="handleBackdropClick">
-      <div class="dialog-container" @click.stop>
+      <div class="dialog-container" @click.stop ref="dialog">
         <div
           class="icon__cancel"
           tabindex="1"
@@ -21,6 +21,7 @@
                 }
               "
               :errorMess="errorMess.feeNameErrMess"
+              autofocus
               required
             />
             <div class="feeGroup">
@@ -33,7 +34,6 @@
                     fee2.feeGroupID = e;
                   }
                 "
-             
                 :active="fee2.feeGroupID"
                 :listData="feeGroup"
               ></ComboBox>
@@ -265,19 +265,17 @@ export default {
       type: Function,
       default: () => 1,
     },
+    feeGroup: {
+      type: Object,
+      default: null,
+    },
   },
   data() {
     return {
-      feeGroup: [
-        { text: "Tháng", id: 1 },
-        { text: "Quý", id: 2 },
-        { text: "Học Kỳ", id: 3 },
-        { text: "Năm Học", id: 4 },
-      ],
       units: unit,
-      applyObject: applyObject.splice(1, 2),
-      property: property.splice(1, 2),
-      period: period.splice(1, 4),
+      applyObject: applyObject,
+      property: property,
+      period: period,
       a: 1,
       fee2: this.fee,
     };
@@ -292,6 +290,9 @@ export default {
     InputVue,
     ComboBox,
     CheckBox,
+  },
+  async created() {
+   
   },
 };
 </script>
