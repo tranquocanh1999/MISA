@@ -1,0 +1,74 @@
+.combobox {
+    position: relative;
+    margin: 0;
+    width: 100%;
+}
+
+.combobox .icon {
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-image: url("../../assets/content/icon/btn-next-page.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+.combobox .select {
+    position: absolute;
+    z-index: 11;
+    visibility: hidden;
+    background-color: #fff;
+    max-height: 160px;
+    width: Calc(100% - 40px);
+    border: 1px solid;
+    overflow-y: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #d5d5d5;
+    margin-top: 4px;
+}
+
+.combobox .select::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    z-index: 1231232123421;
+}
+
+.combobox .select::-webkit-scrollbar-track {
+    width: 6px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.combobox .select::-webkit-scrollbar-thumb {
+    background-color: #bcbcbc;
+    border-radius: 8px;
+}
+
+.combobox .select::-webkit-scrollbar-thumb:hover {
+    background-color: #8f8f8f;
+    border-radius: 8px;
+}
+
+.combobox .select .option {
+    text-align: center;
+    padding-top: 10px;
+    height: 40px;
+    width: 100%;
+}
+
+.combobox .select .option:hover {
+    background-color: #e5f3ff;
+}
+
+.combobox .select .active {
+    background-color: #0dd469;
+    color: #ffffff;
+}
+
+.combobox .show {
+    visibility: visible;
+}

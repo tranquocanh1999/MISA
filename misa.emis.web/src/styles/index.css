@@ -1,0 +1,35 @@
+@import "./layout/Content.css";
+@import "./layout/Header.css";
+@import "./layout/Navbar.css";
+@import "./common/Toolip.css";
+@import "./common/Combobox.css";
+@import "./common/Input.css";
+@import "./common/CheckBox.css";
+@import "./common/Button.css";
+@import "./common/Dialog.css";
+@import "./page/FeeList.css";
+@import "./page/FeeDetail.css";
+@font-face {
+    font-family: "OpenSans-Bold";
+    src: url("../assets/Resources/Fonts/OpenSans-Bold.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: "OpenSans-Italic";
+    src: url("../assets/Resources/Fonts/OpenSans-Italic.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: "OpenSans-Regular";
+    src: url("../assets/Resources/Fonts/OpenSans-Regular.ttf") format("opentype");
+}
+
+.v-application {
+    font-size: 13px;
+    text-align: center;
+    font-family: OpenSans;
+}
+
+.v-application .error {
+    background-color: #ffffff !important;
+}

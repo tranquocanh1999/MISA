@@ -1,0 +1,59 @@
+.fee__detail .feeGroup {
+    display: flex;
+    margin-top: 28px;
+}
+
+.fee__detail .feeGroup .btn-default {
+    background-image: url("../../assets/Resources/ImagesIcons/ic_Plus.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 33px;
+    margin-left: -40px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.fee__detail .Price {
+    display: flex;
+    margin-top: 28px;
+}
+
+.fee__detail .Price .text {
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-left: -4px;
+}
+
+.fee__detail .applyObject {
+    margin-top: 28px;
+}
+
+.fee__detail .property {
+    margin-top: 28px;
+}
+
+.fee__detail .period {
+    margin-top: 28px;
+}
+
+.fee__detail .period .label {
+    display: flex;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.fee__detail .period .period__input {
+    display: flex;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 28px;
+}
+
+.fee__detail .period .period-item {
+    margin-right: 120px;
+}
+
+.fee__detail .period .period-item input {
+    margin-right: 10px;
+}

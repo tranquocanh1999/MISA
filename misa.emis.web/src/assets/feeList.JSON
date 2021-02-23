@@ -1,0 +1,126 @@
+{
+    "thead": [{
+            "className": "FeeName",
+            "content": "Tên khoản thu",
+            "hasFilter": true,
+            "style": "min-width: 400px "
+        },
+        {
+            "className": "FeeGroup",
+            "content": "Nhóm khoản thu",
+            "hasFilter": true,
+            "style": "min-width: 150px "
+        },
+        {
+            "className": "Price",
+            "content": "Mức thu",
+            "hasFilter": true,
+            "style": "min-width: 100px "
+        },
+        {
+            "className": "Period",
+            "content": "Kỳ thu",
+            "hasFilter": true,
+            "style": "min-width: 80px "
+        },
+        {
+            "className": "paymentDeadline",
+            "content": "Thời điểm thu",
+            "hasFilter": true,
+            "style": "min-width: 100px "
+        },
+        {
+            "className": "IsApplyRemisson",
+            "content": "Áp dụng miễn giảm",
+            "hasFilter": false,
+            "style": "min-width: 80px "
+        },
+        {
+            "className": "AllowCreateInvoice",
+            "content": "Cho xuất hóa đơn",
+            "hasFilter": false,
+            "style": "min-width: 80px "
+        },
+        {
+            "className": "AllowCreateReceipt",
+            "content": "Cho xuất chứng từ",
+            "hasFilter": false,
+            "style": "min-width: 80px "
+        },
+        {
+            "className": "isInternal",
+            "content": "Cho phép hoàn trả",
+            "hasFilter": false,
+            "style": "min-width: 80px "
+        },
+        {
+            "className": "isRequire",
+            "content": "Khoản thu bắt buộc",
+            "hasFilter": false,
+            "style": "min-width: 80px "
+        },
+        {
+            "className": "isActive",
+            "content": "Đang theo dõi",
+            "hasFilter": false,
+            "style": "min-width: 80px "
+        },
+        {
+            "content": "",
+            "hasFilter": false,
+            "style": "min-width: 120px "
+        }
+    ],
+    "tbody": [{
+            "feeID": 1,
+            "feeName": "Học Phí",
+            "feeGroupID": "1",
+            "feeGroup": "Học phí",
+            "price": 450000,
+            "period": 1,
+            "unit": 4,
+            "isApplyRemisson": true,
+            "allowCreateInvoice": true,
+            "allowCreateReceipt": true,
+            "isInternal": false,
+            "isRequire": true,
+            "isActive": true,
+            "isSystem": true
+        },
+        {
+            "feeID": 2,
+            "feeName": "Sổ liên lạc điện tử",
+            "feeGroupID": null,
+            "feeGroup": null,
+            "price": 450000,
+            "period": 4,
+            "unit": 2,
+            "isApplyRemisson": false,
+            "allowCreateInvoice": true,
+            "allowCreateReceipt": true,
+            "isInternal": false,
+            "isRequire": true,
+            "isActive": true,
+            "isSystem": false
+        },
+
+        {
+            "feeID": 3,
+            "feeName": "Sữa học đường",
+            "feeGroupID": null,
+            "feeGroup": null,
+            "price": 450000,
+            "period": 4,
+            "unit": 2,
+            "isApplyRemisson": false,
+            "allowCreateInvoice": true,
+            "allowCreateReceipt": true,
+            "isInternal": false,
+            "isRequire": false,
+            "isActive": true,
+            "isSystem": false
+        }
+    ],
+    "listDelete": [false, false]
+
+}

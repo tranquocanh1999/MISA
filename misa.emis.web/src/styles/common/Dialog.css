@@ -1,0 +1,100 @@
+.dialog-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-container {
+    max-width: 1600px;
+    height: 840px;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: visible;
+}
+
+.dialog-enter-active,
+.dialog-leave-active {
+    transition: opacity 0.2s;
+}
+
+.dialog-enter,
+.dialog-leave-to {
+    opacity: 0;
+}
+
+.dialog-enter-active .dialog-container,
+.dialog-leave-active .dialog-container {
+    transition: transform 0.4s;
+}
+
+.dialog-enter .dialog-container,
+.dialog-leave-to .dialog-container {
+    transform: scale(0.9);
+}
+
+.dialog-container .icon__cancel {
+    background-image: url("../../assets/Resources/ImagesIcons/ic_close_16.png");
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 180px;
+}
+
+.dialog-container .dialog__title {
+    color: #888888;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+}
+
+.dialog-container .input__form {
+    width: 100%;
+    height: 70vh;
+    margin-top: 80px;
+    font-size: 16px;
+    display: flex;
+    position: absolute;
+}
+
+.dialog-container .dialog__footer {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    position: relative;
+    bottom: -750px;
+}
+
+.dialog-container .dialog__footer .button {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    position: relative;
+    right: -1150px;
+}
+
+.dialog-container .input__form .left {
+    width: 55%;
+    height: 70vh;
+    border-right: 2px solid #d5d5d5;
+    padding-left: 12px;
+    padding-top: 40px;
+}
+
+.dialog-container .input__form .right {
+    width: 40%;
+    height: 70vh;
+    padding-left: 60px;
+    padding-top: 80px;
+}

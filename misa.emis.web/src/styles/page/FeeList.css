@@ -1,0 +1,168 @@
+.feeList .feeList__tab {
+    height: 40px;
+    width: 100%;
+    background-color: #dfdede;
+    color: #848484;
+    display: flex;
+    position: relative;
+    left: 0;
+}
+
+.feeList .feeList__tab .tab_item {
+    padding: 12px 28px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.feeList .feeList__tab .active {
+    background-color: #fff;
+    color: #0dd469;
+    border-top: 3px solid #0dd469;
+    padding: 8px 28px;
+}
+
+.feeList .feeList__feature {
+    height: 60px;
+    align-items: center;
+    display: flex;
+    padding-left: 24px;
+}
+
+.feeList .feeList__feature .feature__right {
+    position: absolute;
+    right: 24px;
+    display: flex;
+}
+
+.feeList__table {
+    width: 1660px;
+    height: 78vh;
+    margin-left: 16px;
+    margin-right: 16px;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.feeList__table::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    z-index: 1231232123421;
+}
+
+.feeList__table::-webkit-scrollbar-track {
+    width: 6px;
+    background-color: #bbb;
+}
+
+.feeList__table::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 8px;
+}
+
+.feeList__table table {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    height: 300px;
+    border-collapse: collapse;
+}
+
+.feeList__table table tr {
+    border-bottom: 1px solid #ccc;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.feeList__table table tr:nth-child(even) {
+    background: #e5e5e5;
+}
+
+.feeList__table thead {
+    width: 100%;
+    height: 60px;
+}
+
+.feeList__table thead tr {
+    cursor: context-menu;
+    align-items: center;
+    top: 0;
+}
+
+.feeList__table thead tr th {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: 2px solid #d5d5d5;
+}
+
+.feeList__table tbody td {
+    border: 2px solid #d5d5d5;
+}
+
+.feeList__table tbody tr td .checked {
+    background-image: url("../../assets/Resources/ImagesIcons/ic_Check.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    margin-left: 30%;
+}
+
+.feeList__table tbody tr td .feeName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feeList__table tbody tr td .feeName__tooltip {
+    position: relative;
+}
+
+.feeList__table tbody tr td .feeName__tooltip .tooltip__text {
+    bottom: -72px;
+    left: -132px;
+}
+
+.feeList__table tbody .fee__tool {
+    display: flex;
+    padding-left: 8px;
+}
+
+.feeList__table tbody .fee__tool .fee__edit {
+    display: flex;
+    background-image: url("../../assets/Resources/ImagesIcons/ic_Edit.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.feeList__table tbody .fee__tool .fee__duplicate {
+    display: flex;
+    background-image: url("../../assets/Resources/ImagesIcons/ic_Duplicate_24.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.feeList__table tbody .fee__tool .fee__delete {
+    display: flex;
+    background-image: url("../../assets/Resources/ImagesIcons/ic_Remove2.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.feeList__footer {
+    text-align: left;
+    margin-left: 24px;
+    margin-top: 12px;
+}

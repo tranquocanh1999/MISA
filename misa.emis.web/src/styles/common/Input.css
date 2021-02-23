@@ -1,0 +1,118 @@
+.input {
+    position: relative;
+    margin-right: 20px;
+    text-align: left;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.input .input_label {
+    display: block;
+    font-size: 13px;
+    color: #000000;
+    padding-bottom: 14px;
+    padding-left: 4px;
+}
+
+.input .prefix {
+    background-repeat: no-repeat;
+    background-position: 2% 50%;
+    background-size: 16px;
+    padding-left: 30px !important;
+}
+
+.input .input_content {
+    margin-top: -20px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    height: 40px;
+    color: #423a3a;
+    padding-left: 16px;
+    width: calc(100% - 20px);
+}
+
+.input_content:focus {
+    outline: none !important;
+    border: 1px solid #019160;
+    color: #000000;
+}
+
+.input .errorValidate {
+    border: 1px solid #ff4d4d;
+}
+
+.input .input_icon {
+    visibility: visible;
+    position: absolute;
+    right: 25px;
+    bottom: 13px;
+    width: 16px;
+    height: 16px;
+    background-image: url("../../assets/content/icon/x.svg");
+    background-color: #ffffff;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #ff4747;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    left: 0px;
+}
+
+
+/* Popup arrow */
+
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ff4747 transparent transparent transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
