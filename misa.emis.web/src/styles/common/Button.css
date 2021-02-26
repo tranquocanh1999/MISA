@@ -16,6 +16,7 @@ button {
 
 .btn {
     background-color: #03AE66;
+    border: 1px solid #3D3F4E;
 }
 
 .btn:hover {

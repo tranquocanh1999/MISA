@@ -38,7 +38,7 @@
                 :listData="feeGroup"
               ></ComboBox>
               <div>
-                <button class="btn-default"></button>
+                <button tabindex="1" class="btn-default"></button>
               </div>
             </div>
             <div class="Price">
@@ -112,7 +112,7 @@
                   class="period-item"
                   v-for="(item, index) in period"
                   :key="index"
-                  tabindex="0"
+                  tabindex="1"
                   @keyup.13="fee2.period = item.id"
                 >
                   <input
@@ -203,11 +203,12 @@
           <CheckBox
             content="ngừng theo dõi"
             styles="width:250px;"
+            v-if="this.title!=='Thêm mới khoản thu'"
             :checked="!fee2.isActive"
             :value="!fee2.isActive"
             :onClick="
               (e) => {
-                fee2.isActive = !e;
+                fee2.isActive = e;
               }
             "
           />
@@ -275,7 +276,7 @@ export default {
       units: unit,
       applyObject: applyObject,
       property: property,
-      period: period,
+      period: period.slice(1,5),
       a: 1,
       fee2: this.fee,
     };

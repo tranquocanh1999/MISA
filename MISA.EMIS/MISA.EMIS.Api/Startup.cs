@@ -49,7 +49,7 @@ namespace MISA.EMIS.Api
 
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IFeeService, FeeService>();
-            services.AddScoped<ICustomerGroupService, FeeGroupService>();
+            services.AddScoped<IFeeGroupService, FeeGroupService>();
 
             services.AddScoped(typeof(IDbContext<>), typeof(MariaDbContext<>));
             services.AddScoped<IFeeRepository, FeeRepository>();

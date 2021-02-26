@@ -19,8 +19,8 @@
       <CheckBox
         content="Hiển thị khoản thu ngừng theo dõi"
         styles="width:250px;"
-        :checked="a"
-        :value.sync="a"
+        :checked="isActive"
+        :onClick="onShowActiveFee"
       >
       </CheckBox>
       <div class="feature__right">
@@ -44,13 +44,13 @@
     <div class="feeList__table">
       <table>
         <thead>
-          <tr>
-            <th>
+          <tr class="checked">
+            <th class="checkbox">
               <CheckBox
                 :style="{
-                  width: '40px',
-                  marginLeft: '15px',
-                  marginTop: '-15px',
+                  width: '120px',
+                  marginLeft: '30%',
+                  marginTop: '-15%',
                 }"
                 value="false"
                 disabled
@@ -87,7 +87,8 @@
             </th>
           </tr>
         </thead>
-        <tbody class="table_body">
+
+        <tbody class="table_body" v-if="!isLoading">
           <tr
             v-for="(fee, index) in tbody"
             v-bind:key="fee.feeID"
@@ -97,8 +98,8 @@
               <CheckBox
                 :style="{
                   width: '40px',
-                  marginLeft: '15px',
-                  marginTop: '-40%',
+                  marginLeft: '30%',
+                  marginTop: '-15%',
                 }"
                 :checked.sync="listDelete[index]"
                 :value="index"
@@ -106,7 +107,7 @@
               />
             </td>
 
-            <td>
+            <td class="FeeName">
               <div class="feeName">
                 <div class="feeName__text">{{ fee.feeName }}</div>
                 <div class="feeName__tooltip">
@@ -121,20 +122,30 @@
                 </div>
               </div>
             </td>
-            <td>{{ getGroupName(fee.feeGroupID) }}</td>
-            <td>
+            <td class="FeeGroup">{{ getGroupName(fee.feeGroupID) }}</td>
+            <td class="Price">
               {{
                 fee.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               }}/{{ unit(fee.unit) }}
             </td>
-            <td>{{ Period(fee.period) }}</td>
+            <td class="Period">{{ Period(fee.period) }}</td>
             <td>{{ paymentDeadline(fee.period) }}</td>
-            <td><div :class="{ checked: fee.isApplyRemisson }" /></td>
-            <td><div :class="{ checked: fee.allowCreateInvoice }" /></td>
-            <td><div :class="{ checked: fee.allowCreateReceipt }" /></td>
-            <td><div :class="{ checked: fee.allowRefunds }" /></td>
-            <td><div :class="{ checked: fee.isRequire }" /></td>
-            <td><div :class="{ checked: fee.isActive }" /></td>
+            <td class="IsApplyRemisson">
+              <div :class="{ checked: fee.isApplyRemisson }" />
+            </td>
+            <td class="AllowCreateInvoice">
+              <div :class="{ checked: fee.allowCreateInvoice }" />
+            </td>
+            <td class="AllowCreateReceipt">
+              <div :class="{ checked: fee.allowCreateReceipt }" />
+            </td>
+            <td class="allowRefunds">
+              <div :class="{ checked: fee.allowRefunds }" />
+            </td>
+            <td class="isRequire">
+              <div :class="{ checked: fee.isRequire }" />
+            </td>
+            <td class="isActive"><div :class="{ checked: fee.isActive }" /></td>
             <td>
               <div class="fee__tool">
                 <div
@@ -157,6 +168,7 @@
           </tr>
         </tbody>
       </table>
+      <div class="loading" v-if="isLoading"></div>
     </div>
     <div class="feeList__footer">
       Tổng số: <b>{{ count }}</b> kết quả
@@ -180,7 +192,7 @@
 </template>
 
 <script>
-import * as axios from "axios";
+import * as api from "../../../js/Api.js";
 import Confirm from "../../../components/common/Confirm";
 import Alert from "../../../components/common/Alert";
 import FeeDetail from "./FeeDetail";
@@ -194,6 +206,7 @@ import ComboBox from "../../../components/common/ComboBox";
 export default {
   data() {
     return {
+      // khai báo item thanh tab
       tabItems: [
         {
           text: "Quy trình",
@@ -208,37 +221,37 @@ export default {
           text: "Đăng ký miễn giảm",
         },
       ],
+
+      // tiêu đề bảng
       thead: feeList.thead,
+
+      // nội dung bảng
       tbody: feeList.tbody,
-      a: true,
+
+      // hiển thị khoản thu ngừng theo dõi nếu isActive=true và ngược lại
+      isActive: true,
+
+      // danh sách kì thu
       period: period,
+
+      // kiểm tra dữ liệu trả về hay chưa , nếu chưa thì hiện loading
+      isLoading: true,
+
+      // danh sách khoản thu được chọn
       listDelete: feeList.listDelete,
+
+      // mở dialog thêm mới nếu bằng true
       isAdd: false,
       feeDetailsContent: "",
+      // đếm số bản ghi trả về
       count: 0,
+
+      // nhóm khoản thu
       groups: [],
-      feeNull: {
-        feeID: -1,
-        feeName: "",
-        feeGroupID: -1,
-        price: 0,
-        unit: -1,
-        applyObject: "0",
-        property: 1,
-        period: 1,
-        isApplyRemisson: true,
-        isRequire: false,
-        allowCreateInvoice: false,
-        allowCreateReceipt: false,
-        isActive: false,
-        isInternal: false,
-        isSystem: false,
-        createdDate: "2021-01-20T21:56:39.807",
-        createdBy: null,
-        modifiedDate: "2021-01-20T21:56:39.807",
-        modifiedBy: null,
-      },
+      // khoản thu
       fee: [],
+
+      //danh sách lỗi
       errorMess: {
         feeNameErrMess: "",
         feeGroupErrMess: "",
@@ -249,11 +262,17 @@ export default {
       },
       //type = 0 xóa , type = 1 chỉnh sửa , type = 2 thêm mới ,type =3 xóa nhiều
       type: -1,
+      // đóng mở arlert
       alertActive: false,
+      // nội dung arlert
       alertText: "",
+      //đóng mở confirm
       confirmActive: false,
+      // nội dung confirm
       confirmText: "",
+
       acceptConfirm: false,
+
       idDelete: 0,
     };
   },
@@ -279,6 +298,7 @@ export default {
     Confirm,
   },
   methods: {
+    // lấy đơn vị từ mã trả về
     unit(unit) {
       if (unit === 1) return "ngày";
       if (unit === 2) return "tháng";
@@ -287,6 +307,8 @@ export default {
       if (unit === 5) return "năm";
       return "";
     },
+
+    // lấy tên kì từ mã trả về
     Period(period) {
       if (period === 1) return "Tháng";
       if (period === 2) return "Quý";
@@ -294,11 +316,19 @@ export default {
       if (period === 4) return "Năm Học";
       return "";
     },
+
+    // lấy tên nhóm khoản thu từ mã
     getGroupName(e) {
+      // tìm tên trong danh sách nhóm khoản thu có id=e
       var result = this.groups.find((element) => element.id === e);
+
+      // nếu result = underfined thì trả về trống
       if (typeof result == "undefined") return "";
+
       return result.text;
     },
+
+    // trả về thời điểm thu
     paymentDeadline(period) {
       if (period === 1) return "Hàng Tháng";
       if (period === 2) return "Hàng Quý";
@@ -306,19 +336,36 @@ export default {
       if (period === 4) return "Hàng Năm";
       return "";
     },
+
+    // đóng các dialog
     handleBackdropClick() {
       this.isAdd = false;
       this.alertActive = false;
       this.confirmActive = false;
     },
-
-    onEdit(id) {
-      axios.get("http://localhost:49682/api/v1/Fees/" + id).then((response) => {
-        this.fee = response.data;
-        this.feeDetailsContent = "Chỉnh sửa khoản thu";
-        this.type = 1;
-        this.isAdd = true;
-      });
+    onShowActiveFee() {
+      if (!this.isActive) {
+        this.getFees("Fees");
+        this.isActive = !this.isActive;
+      } else {
+        this.getFees("Fees/active");
+        this.isActive = !this.isActive;
+      }
+    },
+    async onEdit(id) {
+      var response = await api.getDataByID("Fees", id);
+      this.fee = response.data;
+      this.feeDetailsContent = "Chỉnh sửa khoản thu";
+      this.type = 1;
+      this.isAdd = true;
+      this.errorMess = {
+        feeNameErrMess: "",
+        feeGroupErrMess: "",
+        priceErrMess: "",
+        unitErrMess: "",
+        applyObjectErrMess: "",
+        periodErrMess: "",
+      };
     },
     onDelete(id) {
       this.confirmText = "bạn có chắc muốn xóa khoản thu này";
@@ -326,46 +373,33 @@ export default {
       this.idDelete = id;
       this.type = 0;
     },
-    onConfirmSubmit() {
+    async onConfirmSubmit() {
       var fee = this.fee;
       if (this.type === 0) {
-        axios
-          .delete(
-            "http://localhost:49682/api/v1/Fees/" + this.idDelete.toString()
-          )
-          .then(() => {
-            location.reload();
-          })
-          .catch((error) => {
-            this.alertText = error.response.data.userMsg[0];
-            this.alertActive = true;
-            this.confirmActive = false;
-          });
+        var response = await api.deleteEntity("Fees", this.idDelete);
+
+        if (response.status == 400) {
+          this.alertText = response.data.userMsg[0];
+          this.alertActive = true;
+          this.confirmActive = false;
+        } else location.reload();
       } else if (this.type === 1) {
-        axios
-          .put("http://localhost:49682/api/v1/Fees/" + fee.feeID, fee)
-          .then(() => {
-            location.reload();
-          })
-          .catch((error) => {
-            console.log(error.response);
-            this.validate(error.response.data.userMsg);
-            this.confirmActive = false;
-          });
+        response = await api.updateEntity("Fees", fee, fee.feeID);
+
+        if (response.status == 400) {
+          this.confirmActive = false;
+          this.validate(response.data.userMsg);
+        } else location.reload();
       } else if (this.type === 2) {
         if (fee.createdDate === "") fee.createdDate;
         delete fee["feeID"];
         fee.applyObject = fee.applyObject.toString();
+        response = await api.insertEntity("Fees", fee);
 
-        axios
-          .post("http://localhost:49682/api/v1/Fees", fee)
-          .then(() => {
-            location.reload();
-          })
-          .catch((error) => {
-            this.confirmActive = false;
-            this.validate(error.response.data.userMsg);
-          });
+        if (response.status == 400) {
+          this.confirmActive = false;
+          this.validate(response.data.userMsg);
+        } else location.reload();
       } else if (this.type === 3) {
         var flag = true;
         this.listDelete.every((item) => {
@@ -380,24 +414,18 @@ export default {
           return true;
         });
         if (flag) {
-          
-          this.listDelete
-            .forEach((item) => {
-              if (item.isActive) {
-                axios
-                  .delete(
-                    "http://localhost:49682/api/v1/Fees/" + item.id.toString()
-                  )
-                  .then(() => {location.reload()})
-                  .catch((error) => {
-                    this.alertText = error.response.data.userMsg[0];
-                    this.alertActive = true;
-                    this.confirmActive = false;
-                  });
+          this.listDelete.forEach(async (item) => {
+            if (item.isActive) {
+              response = await api.deleteEntity("Fees", item.id);
+
+              if (response.status == 400) {
+                this.alertText = response.data.userMsg[0];
+                this.alertActive = true;
+                this.confirmActive = false;
               }
-            })
-           
-           
+              location.reload();
+            }
+          });
         }
       }
     },
@@ -424,7 +452,35 @@ export default {
       this.listDelete[index].isActive = !this.listDelete[index].isActive;
     },
     onCreateFee() {
-      this.fee = this.feeNull;
+      this.fee = {
+        feeID: -1,
+        feeName: "",
+        feeGroupID: -1,
+        price: 0,
+        unit: -1,
+        applyObject: "0",
+        property: 1,
+        period: 1,
+        isApplyRemisson: false,
+        isRequire: false,
+        allowCreateInvoice: false,
+        allowCreateReceipt: false,
+        isActive: true,
+        isInternal: false,
+        isSystem: false,
+        createdDate: "2021-01-20T21:56:39.807",
+        createdBy: null,
+        modifiedDate: "2021-01-20T21:56:39.807",
+        modifiedBy: null,
+      };
+      this.errorMess = {
+        feeNameErrMess: "",
+        feeGroupErrMess: "",
+        priceErrMess: "",
+        unitErrMess: "",
+        applyObjectErrMess: "",
+        periodErrMess: "",
+      };
       this.feeDetailsContent = "Thêm mới khoản thu";
       this.type = 2;
       this.isAdd = true;
@@ -467,9 +523,9 @@ export default {
         }
       }
     },
-  },
-  async created() {
-    axios.get("http://localhost:49682/api/v1/Fees").then((response) => {
+    async getFees(name) {
+      var response = await api.getData(name);
+
       this.tbody = response.data;
       var list = [];
 
@@ -479,27 +535,22 @@ export default {
         element.isSystem = item.isSystem;
         list.push(element);
       });
-      this.count=list.length;
+      this.count = list.length;
       this.listDelete = list;
+    },
+  },
+  async created() {
+    await this.getFees("Fees");
+    var response = await api.getData("fee-groups");
+    var listGroup = [{ id: 0, text: "" }];
+    response.data.forEach((item) => {
+      var group = { id: "", text: "" };
+      group.id = item.feeGroupID;
+      group.text = item.feeGroupName;
+      listGroup.push(group);
+      this.isLoading = false;
     });
-
-    // this.count = this.tbody.length;
-    // var list = new Array();
-    // for (var i = 0; i < this.count; i++) {
-    //   list.push(false);
-    // }
-    // this.listDelete = list;
-    axios.get("http://localhost:49682/api/v1/fee-groups").then((response) => {
-      var listGroup = [{ id: 0, text: "" }];
-
-      response.data.forEach((item) => {
-        var group = { id: "", text: "" };
-        group.id = item.feeGroupID;
-        group.text = item.feeGroupName;
-        listGroup.push(group);
-      });
-      this.groups = listGroup;
-    });
+    this.groups = listGroup;
   },
 };
 </script>

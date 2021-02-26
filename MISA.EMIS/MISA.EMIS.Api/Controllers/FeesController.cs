@@ -23,9 +23,36 @@ namespace MISA.CukCuk.Api.Controllers
     {
 
 
-        public FeesController(IFeeService _customerService) : base(_customerService)
+        public FeesController(IFeeService _iFeeService) : base(_iFeeService)
         {
+        
         }
+
+
+        #region Method
+        [HttpGet("active")]
+        public IActionResult GetActiveFee()
+        {
+
+            try
+            {
+                var serviceResult = _baseService.GetData("select * from Fee where isActive=true");
+                var entity = serviceResult.Data as List<Fee>;
+                if (entity.Count == 0)
+                    return StatusCode(204, serviceResult.Data);
+                else return StatusCode(200, serviceResult.Data);
+            }
+            catch (Exception ex)
+            {
+                var serviceResult = new ServiceResult();
+                var erroMsg = new ErroMsg();
+                erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                erroMsg.DevMsg = ex.ToString();
+                serviceResult.Data = erroMsg;
+                return StatusCode(500, serviceResult.Data);
+            }
+        }
+        #endregion
     }
 
 }

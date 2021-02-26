@@ -21,7 +21,7 @@ namespace MISA.CukCuk.Api.Controllers
     {
 
 
-        public FeeGroupsController(ICustomerGroupService customerGroupService) : base(customerGroupService)
+        public FeeGroupsController(IFeeGroupService feeGroupService) : base(feeGroupService)
         {
         }
     }

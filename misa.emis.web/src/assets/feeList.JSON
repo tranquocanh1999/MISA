@@ -48,7 +48,7 @@
             "style": "min-width: 80px "
         },
         {
-            "className": "isInternal",
+            "className": "AllowRefunds",
             "content": "Cho phép hoàn trả",
             "hasFilter": false,
             "style": "min-width: 80px "

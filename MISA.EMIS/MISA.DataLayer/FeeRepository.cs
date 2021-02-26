@@ -12,12 +12,11 @@ namespace MISA.DataLayer
     /// kho lưu trữ cho khoản thu
     /// </summary>
     /// CreatedBy: TQAnh ( 22/02/2021)
-    public class FeeRepository : MariaDbContext<Fee>,IFeeRepository
+    public class FeeRepository : MariaDbContext<Fee>, IFeeRepository
     {
-
-
-   
-
-
+        public Fee GetActiveFee()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

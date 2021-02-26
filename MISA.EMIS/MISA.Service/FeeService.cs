@@ -79,8 +79,7 @@ namespace MISA.Service
             var isExits=false;
             // 2. Kiểm tra dữ liệu không được phép trùng : Trùng tên khoản phí 
             // - kiểm tra trong database đã có mã khách hàng hay chưa 
-            if (type == 1)
-            {
+            
                 isExits = _dbContext.CheckExits(fee.FeeName.Trim(), "FeeName");
                 if (isExits == true)
                 {
@@ -89,7 +88,17 @@ namespace MISA.Service
 
                     isValid = false;
                 }
+
+
+            if (type == 2)
+            {
+                var name = _dbContext.GetByID(fee.FeeID).FeeName;
+                if (fee.FeeName.Trim().ToLower() == name.ToLower())
+                erroMsg.UserMsg.Remove(MISA.Common.Properties.Resources.UserMsg_Duplicated_FeeName);
+
+                if (erroMsg.UserMsg.Count == 0) isValid = true;
             }
+
 
             // 2. Kiểm tra nhóm khoản thu đã có hay chwa
             // - kiểm tra trong database đã có nhóm khoản thu hay chưa
@@ -123,5 +132,7 @@ namespace MISA.Service
 
             return isValid;
         }
+
+   
     }
 }

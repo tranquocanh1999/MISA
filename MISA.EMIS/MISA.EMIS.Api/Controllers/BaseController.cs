@@ -24,7 +24,7 @@ namespace MISA.CukCuk.Api.Controllers
     {
 
         #region DECLARE
-        IBaseService<Entity> _baseService;
+        protected IBaseService<Entity> _baseService;
         #endregion
 
         #region Constructor
@@ -35,6 +35,7 @@ namespace MISA.CukCuk.Api.Controllers
         #endregion
 
         #region Method
+
         /// <summary>
         /// Lấy danh sách các  đối tượng
         /// </summary>
@@ -137,10 +138,10 @@ namespace MISA.CukCuk.Api.Controllers
                 var res = _baseService.Update(id, entity);
                 if (res.Success == false)
                     return StatusCode(400, res.Data);
-                
+
                 else return StatusCode(200, res.Data);
 
-               
+
             }
             catch (Exception ex)
             {
@@ -167,18 +168,20 @@ namespace MISA.CukCuk.Api.Controllers
 
                 var res = _baseService.Delete(id);
 
-              
+
                 if (res.Success == false)
                     return StatusCode(400, res.Data);
 
-                else return StatusCode(200, res.Data);
+                else return StatusCode(204);
             }
             catch (Exception ex)
             {
                 var serviceResult = new ServiceResult();
                 var erroMsg = new ErroMsg();
                 erroMsg.UserMsg.Add(MISA.Common.Properties.Resources.UserMsg_Exception);
+                erroMsg.DevMsg = ex.ToString();
                 serviceResult.Data = erroMsg;
+
                 return StatusCode(500, serviceResult.Data);
             }
         }

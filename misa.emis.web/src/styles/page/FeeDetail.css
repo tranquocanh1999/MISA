@@ -24,6 +24,30 @@
     cursor: pointer;
 }
 
+.fee__detail .input__form {
+    width: 1600px;
+    height: 70vh;
+    margin-top: 80px;
+    font-size: 16px;
+    display: flex;
+    position: absolute;
+}
+
+.fee__detail .input__form .left {
+    width: 1000px;
+    height: 70vh;
+    border-right: 2px solid #d5d5d5;
+    padding-left: 12px;
+    padding-top: 0px;
+}
+
+.fee__detail .input__form .right {
+    width: 500px;
+    height: 70vh;
+    padding-left: 60px;
+    padding-top: 40px;
+}
+
 .fee__detail .Price {
     display: flex;
     margin-top: 28px;
@@ -66,4 +90,20 @@
 
 .fee__detail .period .period-item input {
     margin-right: 10px;
+}
+
+.fee__detail .dialog__footer {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    position: relative;
+    bottom: -750px;
+}
+
+.fee__detail .dialog__footer .button {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    position: fixed;
+    right: -1500px;
 }

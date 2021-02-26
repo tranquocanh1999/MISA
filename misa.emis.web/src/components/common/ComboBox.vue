@@ -26,7 +26,7 @@
           v-for="(data, index) in listData"
           :key="index"
           :value="data.id"
-          :tabindex="0"
+          :tabindex="1"
           @click="onSelect(data)"
           v-on:keyup.13="onEnter(data)"
         >

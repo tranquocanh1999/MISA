@@ -54,18 +54,23 @@
 }
 
 .combobox .select .option {
-    text-align: center;
     padding-top: 10px;
     height: 40px;
     width: 100%;
+    text-align: left;
+    padding-left: 24px;
+    margin-left: 1.5%;
+    border-radius: 4px;
+    width: 97%;
 }
 
 .combobox .select .option:hover {
-    background-color: #e5f3ff;
+    background-color: #deeefc;
+    color: black;
 }
 
 .combobox .select .active {
-    background-color: #0dd469;
+    background-color: #88c4f8;
     color: #ffffff;
 }
 

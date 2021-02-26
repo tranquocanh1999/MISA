@@ -55,6 +55,23 @@ namespace MISA.DataLayer
             return entities;
         }
 
+        /// <summary>
+        /// lấy dữ liệu với câu lệnh nhập vào
+        /// </summary>
+        /// <returns>trả về thông tin cần lấy </returns>
+        ///   CreatedBy: TQAnh (22/02/2021)
+        public IEnumerable<Entity> GetAll(string sqlQuery)
+        {
+
+
+
+            // thực thi truy vấn
+            var entities = _dbConnection.Query<Entity>(sqlQuery, commandType: CommandType.Text);
+
+            // trả về cho client
+            return entities;
+        }
+
 
 
         /// <summary>
@@ -64,11 +81,11 @@ namespace MISA.DataLayer
         /// <param name="name">giá trị tên trường</param>
         /// <returns>trả về đối tượng </returns>
         ///   CreatedBy: TQAnh (22/02/2021)
-       public  Entity GetByID(int value)
+        public  Entity GetByID(int value)
         {
 
             // thực thi truy vấn
-            var entities = _dbConnection.Query<Entity>($"Select * from {className} where {className}ID={value} ", commandType: CommandType.Text).FirstOrDefault();
+            var entities = _dbConnection.Query<Entity>($"Select * from {className} where {className}ID={value.ToString()} ", commandType: CommandType.Text).FirstOrDefault();
 
             // trả về cho client
             return entities;

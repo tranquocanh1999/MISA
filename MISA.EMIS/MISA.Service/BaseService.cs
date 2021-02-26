@@ -20,6 +20,7 @@ namespace MISA.Service
         // khai báo các thuộc tính
         protected ServiceResult serviceResult;
         protected IDbContext<Entity> _dbContext;
+        protected String sqlQuerry;
         #endregion
 
         #region Constructor
@@ -50,6 +51,17 @@ namespace MISA.Service
         {
 
             serviceResult.Data = _dbContext.GetAll();
+            return serviceResult;
+        }
+        /// <summary>
+        /// lấy danh sách 
+        /// </summary>
+        /// <returns> trả về một ServiceResult  </returns>
+        ///  CreatedBy: TQAnh ( 22/02/2021)
+        public ServiceResult GetData(String sqlQuerry)
+        {
+
+            serviceResult.Data = _dbContext.GetAll(sqlQuerry);
             return serviceResult;
         }
 
@@ -145,10 +157,23 @@ namespace MISA.Service
           
         }
 
-
+        /// <summary>
+        /// validate dữ liệu nhập vào
+        /// </summary>
+        /// <param name="entity">đối tượng cần validate </param>
+        /// <param name="erroMsg">chứa lỗi trả về nếu có</param>
+        /// <param name="type">loại validate 0: thêm , 1: chỉnh sửa</param>
+        /// <returns></returns>
         protected virtual bool ValidateData(Entity entity, ErroMsg erroMsg ,int type)
         { return true; }
 
+
+        /// <summary>
+        /// kiểm tra có phải dữ liệu hệ thống hay không 
+        /// </summary>
+        /// <param name="id">là dữ liệu hệ thống </param>
+        /// <param name="erroMsg">chứa lỗi trả về </param>
+        /// <returns></returns>
         protected virtual bool isSystem(int id, ErroMsg erroMsg)
         { return true; }
 

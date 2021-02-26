@@ -20,6 +20,13 @@ namespace MISA.Service.Interfaces
         ServiceResult GetData();
 
         /// <summary>
+        /// lấy danh sách 
+        /// </summary>
+        /// <returns> trả về một ServiceResult  </returns>
+        ///  CreatedBy: TQAnh ( 22/02/2021)
+        ServiceResult GetData(String sqlQuery);
+
+        /// <summary>
         /// lấy đối tượng theo id
         /// </summary>
         /// <param name="value">giá trị id</param>

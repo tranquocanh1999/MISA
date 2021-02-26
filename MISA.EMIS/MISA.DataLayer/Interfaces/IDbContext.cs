@@ -19,6 +19,13 @@ namespace MISA.DataLayer.Interfaces
         ///   CreatedBy: TQAnh (22/02/2021)
         IEnumerable<Entity> GetAll();
 
+        /// <summary>
+        /// lấy tất cả danh sách đối tượng theo câu truy vấn
+        /// </summary>
+        /// <returns>trả về danh sách đối tượng</returns>
+        ///   CreatedBy: TQAnh (22/02/2021)
+        IEnumerable<Entity> GetAll(string sqlQuery);
+
 
         /// <summary>
         /// lấy đối tượng theo id

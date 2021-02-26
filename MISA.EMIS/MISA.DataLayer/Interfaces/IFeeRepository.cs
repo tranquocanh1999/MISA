@@ -12,5 +12,7 @@ namespace MISA.DataLayer.Interfaces
     ///   CreatedBy: TQAnh (22/02/2021)
     public interface IFeeRepository : IDbContext<Fee>
     {
+
+       
     }
 }

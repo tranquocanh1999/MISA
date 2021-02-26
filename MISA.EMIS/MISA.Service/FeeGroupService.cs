@@ -11,7 +11,7 @@ namespace MISA.Service
    /// service cho nhóm khoản thu
    /// </summary>
    /// CreatedBy: TQAnh (22/02/2021)
-    public class FeeGroupService : BaseService<FeeGroup>, ICustomerGroupService
+    public class FeeGroupService : BaseService<FeeGroup>, IFeeGroupService
     {
 
       

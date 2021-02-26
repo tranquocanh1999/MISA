@@ -11,8 +11,8 @@ namespace MISA.Service.Interfaces
     /// CreatedBy: TQAnh ( 22/02/2021)
     public interface IFeeService:IBaseService<Fee>
     {
-       
 
+     
 
     }
 }
