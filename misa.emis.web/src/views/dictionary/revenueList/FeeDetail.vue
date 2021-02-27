@@ -42,8 +42,9 @@
               </div>
             </div>
             <div class="Price">
+            
               <InputVue
-                type="number"
+                type="currency"
                 label="Mức thu"
                 required
                 style="width:70%"

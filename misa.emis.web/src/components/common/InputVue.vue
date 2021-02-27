@@ -10,13 +10,14 @@
       >
     </div>
     <input
-      v-bind:type="type"
+      type="text"
       class="input_content "
       v-bind:class="{ errorValidate: error, prefix: hasPrefix }"
-      id="input_content "
-      v-bind:value="value"
+      id="input_content"
+      v-bind:value="checkValue"
       v-bind:style="{ backgroundImage: 'url(' + prefix + ')', styles }"
-      v-on:keyup="onChange($event.target.value)"
+      v-on:keyup="onKeyup"
+      v-on:keydown="onKeydown"
       v-bind:placeholder="placeholder"
       :readonly="readonly"
       :required="required"
@@ -27,7 +28,7 @@
 
     <div
       class=" input_icon "
-      v-on:click="onChange(type === 'number' ? 0 : '')"
+      v-on:click="onChange(type === 'currency' ? 0 : '')"
       v-if="hasValue"
     ></div>
   </div>
@@ -103,13 +104,42 @@ export default {
       if (this.prefix === "" || this.prefix === null) return false;
       else return true;
     },
+    checkValue() {
+      if (this.type === "currency") {
+        return this.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      } else return this.value;
+    },
   },
-  methods: {},
-created(){
-
-  if(this.autofocus===true) setTimeout(()=>{this.$refs.autoFocus.focus()},0);
-}
-
+  methods: {
+   async onKeydown(e) {
+    
+      if (
+        !(
+          (e.keyCode > 95 && e.keyCode < 106) ||
+          (e.keyCode > 47 && e.keyCode < 58) ||
+          e.keyCode == 8|| e.keyCode == 9
+        )&&this.type === "currency"
+      ) {
+       e.preventDefault()
+      }
+    },
+    async onKeyup(e) {
+          var x = e.target.value;
+      if (this.type === "currency") {
+       
+     if(x===null||x==='') x="0"
+        x = parseInt(x.split(",").join(""));
+   
+      }
+           this.onChange(x);
+    },
+  },
+  created() {
+    if (this.autofocus === true)
+      setTimeout(() => {
+        this.$refs.autoFocus.focus();
+      }, 0);
+  },
 };
 </script>
 

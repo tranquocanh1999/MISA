@@ -36,6 +36,8 @@ namespace MISA.CukCuk.Api.Controllers
 
             try
             {
+
+             
                 var serviceResult = _baseService.GetData("select * from Fee where isActive=true");
                 var entity = serviceResult.Data as List<Fee>;
                 if (entity.Count == 0)

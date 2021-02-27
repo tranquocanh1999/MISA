@@ -9,7 +9,7 @@
           v-on:keyup.13="handleBackdropClick"
         ></div>
         <h1 class="dialog__title">Thông báo</h1>
-        <div class="alert__text">{{ text }}</div>
+        <div class="confirm__text">{{ text }}</div>
         <div class="confirm__btn">
           <button
             class="btn-default"
