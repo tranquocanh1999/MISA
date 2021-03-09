@@ -65,6 +65,18 @@ namespace MISA.Service
             return serviceResult;
         }
 
+        /// <summary>
+        /// lấy danh sách 
+        /// </summary>
+        /// <returns> trả về một ServiceResult  </returns>
+        ///  CreatedBy: TQAnh ( 22/02/2021)
+        public ServiceResult GetData(Entity e)
+        {
+
+            serviceResult.Data = _dbContext.GetAll(sqlBuilder(e));
+            return serviceResult;
+        }
+
 
         /// <summary>
         /// lấy đối tượng theo id
@@ -179,6 +191,18 @@ namespace MISA.Service
 
 
 
+        /// <summary>
+        /// xây dựng câu truy vấn sql
+        /// </summary>
+        /// <param name="sqlName">danh sách tên cách trường cần kiểm tra  </param>
+        /// <param name="sqlValue">danh sách chứa các mã cần ki </param>
+        /// <returns></returns>
+        protected virtual string sqlBuilder(Entity e)
+        {
+            return "";
+
+
+        }
 
 
         #endregion

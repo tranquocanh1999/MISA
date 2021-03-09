@@ -99,6 +99,7 @@ export default {
     },
     onSelect(data) {
       this.value1 = data.text;
+     
       this.$emit("update:value", data.id);
    this.degree = "90deg";
     },

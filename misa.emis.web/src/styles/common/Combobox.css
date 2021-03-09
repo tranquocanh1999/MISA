@@ -14,7 +14,7 @@
     background-image: url("../../assets/content/icon/btn-next-page.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 10;
+    z-index: 2;
 }
 
 .combobox .select {

@@ -7,6 +7,7 @@ function getData(name) {
     return axios.get(link + name)
 }
 
+
 // lấy 1 entity theo id 
 function getDataByID(name, id) {
     return axios.get(link + name + "/" + id)

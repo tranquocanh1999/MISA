@@ -226,6 +226,7 @@
               class="btn"
               style="width:92px;padding-left:24px"
               @click="onSubmit(fee2)"
+             
             >
               <h3>Lưu</h3>
             </button>

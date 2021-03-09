@@ -19,7 +19,7 @@
       <CheckBox
         content="Hiển thị khoản thu ngừng theo dõi"
         styles="width:250px;"
-        :checked="isActive"
+        :checked="searchParams.isActive"
         :onClick="onShowActiveFee"
       >
       </CheckBox>
@@ -30,7 +30,12 @@
           :onClick="onCreateFee"
           v-on:keyup.13="onCreateFee"
         ></Button>
-        <Button class="btn-default" content="Sắp lại thứ tự" disabled></Button>
+        <Button
+          class="btn-default"
+          :onClick="onSearchFee"
+          v-on:keyup.13="onSearchFee"
+          content="Tìm kiếm"
+        ></Button>
         <Button
           class="btn-default"
           :icon="
@@ -62,16 +67,24 @@
               v-bind:class="item.className"
               v-bind:style="item.style"
             >
-              {{ item.content }}
+              <div id="content">{{ item.content }}</div>
               <br />
+
               <InputVue
-                :type="text"
+                :type="item.className === 'Price' ? 'currency' : 'text'"
                 :label="''"
+                :onChange="
+                  (e) => {
+                    if (item.className === 'Price') searchParams.Price = e;
+                    if (item.className === 'FeeName') searchParams.FeeName = e;
+                  }
+                "
                 :prefix="
                   require('../../../assets/Resources/ImagesIcons/ic_Filter.svg')
                 "
                 :style="{ width: '100%', height: '28px;', margin: '0 8px' }"
                 v-if="item.hasFilter & (item.className !== 'Period')"
+               
               />
 
               <ComboBox
@@ -82,6 +95,7 @@
                   width: '180px',
                   marginBottom: '12px',
                 }"
+                :value.sync="searchParams.Period"
                 v-if="item.hasFilter & (item.className === 'Period')"
               ></ComboBox>
             </th>
@@ -260,6 +274,13 @@ export default {
         applyObjectErrMess: "",
         periodErrMess: "",
       },
+      //chứa thông tin cần tìm kiếm
+      searchParams: {
+        FeeName: "",
+        Price: 0,
+        Period: 0,
+        isActive: true,
+      },
       //type = 0 xóa , type = 1 chỉnh sửa , type = 2 thêm mới ,type =3 xóa nhiều
       type: -1,
       // đóng mở arlert
@@ -343,15 +364,6 @@ export default {
       this.alertActive = false;
       this.confirmActive = false;
     },
-    onShowActiveFee() {
-      if (!this.isActive) {
-        this.getFees("Fees");
-        this.isActive = !this.isActive;
-      } else {
-        this.getFees("Fees/active");
-        this.isActive = !this.isActive;
-      }
-    },
     async onEdit(id) {
       var response = await api.getDataByID("Fees", id);
       this.fee = response.data;
@@ -429,6 +441,7 @@ export default {
         }
       }
     },
+
     onDuplicate(id) {
       alert(id + "du");
     },
@@ -484,6 +497,44 @@ export default {
       this.feeDetailsContent = "Thêm mới khoản thu";
       this.type = 2;
       this.isAdd = true;
+    },
+    onSearchFee() {
+      this.search();
+    },
+    onShowActiveFee() {
+      if (!this.searchParams.isActive) {
+        this.searchParams.isActive = !this.searchParams.isActive;
+        this.search();
+        
+      } else {
+         this.searchParams.isActive = !this.searchParams.isActive;
+        this.search();
+       
+      }
+    },
+    search() {
+      var params = "Fees/search?";
+      var flag = true;
+      if (!this.searchParams.isActive) {
+        params = params + "isActive=true&";
+        
+      }
+      if (this.searchParams.FeeName != "") {
+        params = params + "FeeName=" + this.searchParams.FeeName + "&";
+        flag = false;
+      }
+
+      if (this.searchParams.Price != 0) {
+        params = params + "Price=" + this.searchParams.Price + "&";
+        flag = false;
+      }
+      if (this.searchParams.Period != 0) {
+        params = params + "Period=" + this.searchParams.Period + "&";
+        flag = false;
+      }
+   
+      if (flag&this.searchParams.isActive) this.getFees("Fees");
+      else this.getFees(params);
     },
     validate(data) {
       console.log(data);

@@ -25,20 +25,41 @@ namespace MISA.CukCuk.Api.Controllers
 
         public FeesController(IFeeService _iFeeService) : base(_iFeeService)
         {
-        
+
         }
 
 
         #region Method
-        [HttpGet("active")]
-        public IActionResult GetActiveFee()
+
+        /// <summary>
+        /// tìm kiếm 
+        /// </summary>
+        /// <param name="isActive"></param>
+        /// <param name="FeeName"></param>
+        /// <param name="Price"></param>
+        /// <param name="Period"></param>
+        /// <returns></returns>
+        ///    /// </summary>
+        ///   CreatedBy: TQAnh (27/02/2021)
+        [HttpGet("search")]
+        public IActionResult Search(
+            [FromQuery] Boolean isActive,
+            [FromQuery] String FeeName,
+            [FromQuery] int Price, 
+            [FromQuery] int Period
+            )
+
         {
 
             try
             {
+                var Fee = new Fee();
+                Fee.IsActive = isActive;
+                Fee.FeeName = FeeName;
+                Fee.Price = Price;
+                Fee.Period = Period;
 
-             
-                var serviceResult = _baseService.GetData("select * from Fee where isActive=true");
+                var serviceResult = _baseService.GetData(Fee);
                 var entity = serviceResult.Data as List<Fee>;
                 if (entity.Count == 0)
                     return StatusCode(204, serviceResult.Data);

@@ -133,6 +133,17 @@ namespace MISA.Service
             return isValid;
         }
 
+        protected override string sqlBuilder(Fee fee)
+        {
+            
+            var sqlQuerry = "Select Fee.* from Fee Where";
+            if (fee.IsActive) sqlQuerry = sqlQuerry + " isActive and";
+            if (fee.FeeName != null) sqlQuerry = sqlQuerry + $" FeeName LIKE N'%{fee.FeeName}%' and";
+            if (fee.Price != 0) sqlQuerry = sqlQuerry + $" Price <= {fee.Price} and";
+            if (fee.Period != 0) sqlQuerry = sqlQuerry + $" Period = {fee.Period} and";
+            
+                return sqlQuerry.TrimEnd('a','n','d');
+        }
       
     }
 }
